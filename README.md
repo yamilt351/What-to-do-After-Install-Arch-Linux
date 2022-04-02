@@ -1,17 +1,20 @@
-#ARCH LINUX 
+# ARCH LINUX 
 
-##inslling gnome extra themes
-*sudo pacman -S gnome-extra-themes*
+## Inslling gnome extra themes
+
+* sudo pacman -S gnome-extra-themes*
 
 ## delete orphans pakages 
-*sudo pacman -Rs $(pacman -Qtdq)*
+
+                 sudo pacman -Rs $(pacman -Qtdq)
 
 
-                #video hardware aceleration
+# video hardware aceleration
 
-*sudo pacman -S libva-intel-driver intel-gpu-tools libva-utils*
+            sudo pacman -S libva-intel-driver intel-gpu-tools libva-utils*
 
-##Firefox configuration:
+## Firefox configuration:
+
 <dl>
 <dt>gfx.webrender.all           --) true</dt>  
 <dt>media.ffmpeg.vaapi.enabled  --) true</dt>
@@ -20,54 +23,56 @@
 <dt>media.av1.enabled           --) false</dt>
 </dl>
 
-    ##X11:
+##  X11:
 
-*export MOZ_X11_EGL=1 && export MOZ_DISABLE_RDD_SANDBOX=1 && export MOZ_LOG="PlatformDecoderModule:5" && firefox*
+      export MOZ_X11_EGL=1 && export MOZ_DISABLE_RDD_SANDBOX=1 && export MOZ_LOG="PlatformDecoderModule:5" && firefox*
 
-    ##WAYLAND:
+## WAYLAND:
     
-*export MOZ_ENABLE_WAYLAND=1 && export MOZ_DISABLE_RDD_SANDBOX=1 && export MOZ_LOG="PlatformDecoderModule:5" && firefox*
+      export MOZ_ENABLE_WAYLAND=1 && export MOZ_DISABLE_RDD_SANDBOX=1 && export MOZ_LOG="PlatformDecoderModule:5" && firefox*
 
 
 
-          #Adding envirnment variables system wide:
+# Adding envirnment variables system wide:
 
-*sudo nano /etc/environment*
+    sudo nano /etc/environment
 
-*Add the following line to /etc/environment*
-                     ##For X11:
-*export MOZ_X11_EGL=1* 
-*export MOZ_DISABLE_RDD_SANDBOX=1*
+## Add the following line to /etc/environment
+##  For X11:
+        export MOZ_X11_EGL=1* 
+        export MOZ_DISABLE_RDD_SANDBOX=1*
 
 
-                    ##For WAYLAND:
+## For WAYLAND:
 
-*export MOZ_ENABLE_WAYLAND=1*
-*export MOZ_DISABLE_RDD_SANDBOX=1*
+        export MOZ_ENABLE_WAYLAND=1*
+        export MOZ_DISABLE_RDD_SANDBOX=1*
 _____________________________________________________________
-                    #INTEL DRIVERS
+# INTEL DRIVERS
+
 <dl>                   
 <dt>sudo pacman -S intel-ucode</dt>
 <dt>sudo grub-mkconfig -o /boot/grub/grub.cfg</dt>
 </dl>
 
-                #Disable GRUB delay
+# Disable GRUB delay
 
 - Add the following to /etc/default/grub:
  
- ###achieve the fastest possible boot:
-*GRUB_FORCE_HIDDEN_MENU="true"*
+### achieve the fastest possible boot:
+     GRUB_FORCE_HIDDEN_MENU="true"
 
-###Then put file 31_hold_shift to /etc/grub.d/.
+### Then put file 31_hold_shift to /etc/grub.d/.
 
-[Download 31_hold_shift] (https://goo.gl/nac6Kp)
+Download 31_hold_shift (https://goo.gl/nac6Kp)
 
-###Make it executable, and regenerate the grub configuration:
+### Make it executable, and regenerate the grub configuration:
 
-*sudo chmod a+x /etc/grub.d/31_hold_shift*
-*sudo grub-mkconfig -o /boot/grub/grub.cfg*
+        sudo chmod a+x /etc/grub.d/31_hold_shift
+        sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-#Set up firewall
+# Set up firewall
+
 <dl>
 <dt>Install ufw:</dt>
 <dt>sudo pacman -S ufw</dt>
@@ -83,54 +88,56 @@ _____________________________________________________________
 </dl>
 
 
-#optimize pacman
+# optimize pacman
 - sudo pacman-optimize
 
-#multilib enabling
+# multilib enabling
 
 -   sudo nano /etc/pacman.conf 
 
-#discoment multilib
+# discoment multilib
 
 - sudo pacman -Syyuu
 
 
-#nvidia setting
+# nvidia setting
 
 *sudo pacman -S nvidia nvidia-settings nvidia-utils lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia libvdpau libxnvctrl vulkan-icd-loader lib32-vulkan-icd-loader*
 
-#GAMING Config
+# GAMING Config
 
-##Gamemode is in the AUR run the following commands to install gamemode.
-</dl>
+## Gamemode is in the AUR run the following commands to install gamemode.
+
+<dl>
 <dt>git clone https://aur.archlinux.org/gamemode.git && cd gamemode && makepkg -si && cd</dt>
 
-###same thing for 32bit gamemode.
+  <dt>same thing for 32bit gamemode</dt>
 <dt>git clone https://aur.archlinux.org/lib32-gamemode.git && cd lib32-gamemode && makepkg -si && cd</dt>
 
-###Now that it is installed we need to enable the service with this command
+  <dt>Now that it is installed we need to enable the service with this command</dt>
 <dt>systemctl --user enable gamemoded && systemctl --user start gamemoded</dt>
 
-###To use gamemode for supertuxkart for example, run this terminal
-gamemoderun supertuxkart
+<dt>To use gamemode for supertuxkart for example, run this terminal
+  gamemoderun supertuxkart</dt>
 
-###To use it in Steam edit the launch option for the desired game to
-gamemoderun %command%
+<dt>To use it in Steam edit the launch option for the desired game to
+  gamemoderun %command%</dt>
 
-###If gamemode does not run try to make it executable:
-<dt>sudo chmod +x /usr/bin/gamemoderun</dt>
+<dt>If gamemode does not run try to make it executable:
+sudo chmod +x /usr/bin/gamemoderun</dt>
 
-###If gamemoderun does not work for you try this as a launch command:
-<dt>-LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libgamemodeauto.so.0 %command%</dt>
+<dt>If gamemoderun does not work for you try this as a launch command:
+-LD_PRELOAD=$LD_PRELOAD:/usr/lib/x86_64-linux-gnu/libgamemodeauto.so.0 %command%</dt>
+</dl>
 
 > \` Create a Xorg Config file:
-<dt>sudo nvidia-xconfig*</dt>
+sudo nvidia-xconfig
 
 Move it to the right directory:
-<dt>sudo mv /etc/X11/xorg.conf /etc/X11/xorg.conf.d/20-nvidia.conf</dt>*
+sudo mv /etc/X11/xorg.conf /etc/X11/xorg.conf.d/20-nvidia.conf
 
 Edit the file with the following command
-<dt>sudo nano  /etc/X11/xorg.conf.d/20-nvidia.conf</dt>
+sudo nano  /etc/X11/xorg.conf.d/20-nvidia.conf
 
 Add in these lines under the "Device" section between the other options
 Option         "TripleBuffer" "on"
@@ -139,7 +146,7 @@ Option         "Coolbits" "28"
 Add in these lines under the "Screen" section between the other options.
 Option         "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
 Option         "AllowIndirectGLXProtocol" "off"
-</dl>
+
 Try this one with risk, It will be sure to crash GNOME, I am not sure about other DEs
 
 just add it to the end of the file
