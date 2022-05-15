@@ -3,7 +3,7 @@
 * inslling gnome extra themes
 * sudo pacman -S gnome  gnome-extra-themes flatpak* // restart
 
-                #video hardware aceleration
+ #            video hardware aceleration
 
 * sudo pacman -S libva-intel-driver intel-gpu-tools libva-utils
 
@@ -41,7 +41,7 @@
 * export MOZ_ENABLE_WAYLAND=1*
 * export MOZ_DISABLE_RDD_SANDBOX=1*
 _____________________________________________________________
-                    #INTEL DRIVERS
+#                    INTEL DRIVERS
 <dl>                   
 <dt>sudo pacman -S intel-ucode</dt>
 <dt>sudo grub-mkconfig -o /boot/grub/grub.cfg</dt>
@@ -89,17 +89,17 @@ libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader
 lib32-opencl-icd-loader libxslt lib32-libxslt libva  gtk3 lib32-gtk3
 gst-plugins-base-libs lib32-gst-plugins-base-libs
 
-#   game mode
+#                              game mode
   1. git clone https://github.com/FeralInteractive/gamemode.git
   2. cd gamemode*
   3. git checkout 1.6.1* check the version before
   4. ./bootstrap.sh*
 
 
-#   xorg-drivers
+#                             xorg-drivers
 * sudo pacman -S xorg-drivers
 
-#   Lutris
+#                              Lutris
 * enviroment variables:
 ## Key:
 * __GL_SHADER_DISK_CACHE_SKIP_CLEANUP
