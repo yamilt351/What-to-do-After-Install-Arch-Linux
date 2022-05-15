@@ -1,7 +1,7 @@
 #                     ARCH LINUX 
 
 * inslling gnome extra themes
-* sudo pacman -S gnome  gnome-extra-themes flatpak* // restart
+* sudo pacman -S gnome  gnome-extra-themes flatpak // restart
 
  #            video hardware aceleration
 
@@ -38,8 +38,8 @@
 
 ##  For WAYLAND:
 
-* export MOZ_ENABLE_WAYLAND=1*
-* export MOZ_DISABLE_RDD_SANDBOX=1*
+* export MOZ_ENABLE_WAYLAND=1
+* export MOZ_DISABLE_RDD_SANDBOX=1
 _____________________________________________________________
 #                    INTEL DRIVERS
 <dl>                   
@@ -91,9 +91,9 @@ gst-plugins-base-libs lib32-gst-plugins-base-libs
 
 #                              game mode
   1. git clone https://github.com/FeralInteractive/gamemode.git
-  2. cd gamemode*
+  2. cd gamemode
   3. git checkout 1.6.1* check the version before
-  4. ./bootstrap.sh*
+  4. ./bootstrap.sh
 
 
 #                             xorg-drivers
