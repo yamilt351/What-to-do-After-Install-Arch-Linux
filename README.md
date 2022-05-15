@@ -5,7 +5,7 @@
 
  #            video hardware aceleration
 
-* sudo pacman -S libva-intel-driver intel-gpu-tools libva-utils
+* sudo pacman -S libva-intel-driver intel-gpu-top libva-utils
 
 #                Firefox configuration:
 <dl>
